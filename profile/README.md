@@ -1,5 +1,16 @@
 # AgroBench — benchmarking regional com dados anonimizados e recompensa em blockchain
 
+## Como rodar este MVP
+
+```bash
+npm install
+npm run dev
+```
+
+Abra http://localhost:5173. Use a barra **Demonstração** no topo para percorrer as personas (Início → Produtor ciclo 1 → Produtor 3 ciclos → Instituição).
+
+---
+
 ## O problema
 
 Produtores rurais tomam decisões de compra (adubo, defensivos, insumos) sem nenhuma referência de mercado confiável. Não existe um "quanto o vizinho está pagando" acessível — cada produtor negocia isolado, sem saber se está pagando um preço justo pela sua região.
@@ -104,6 +115,7 @@ O acesso gratuito ao painel existe para recompensar quem contribui dado real —
 - O pagamento das assinaturas das instituições entra em um **pool de receita** controlado por smart contract na Solana.
 - O contrato mantém o registro de quais wallets contribuíram para cada agregado (região × período × cultura).
 - Ao fim de cada ciclo, a receita daquele agregado é **dividida proporcionalmente entre as wallets que contribuíram** para ele. Um agregado mais raro — cultura ou região sub-representada — distribui uma fatia maior por wallet, porque menos produtores dividem aquele pool. A ponderação também considera a granularidade do dado enviado (seção 6.2): um produtor com dado de nível avançado recebe peso maior na divisão do que um produtor com dado de nível básico.
+- **O pool também sustenta a operação.** Antes da divisão entre produtores, o contrato desconta do pool (a) os custos de infraestrutura — validação em TEE, taxas de rede das transações on-chain (commit, atestação, distribuição) e o gas pago em nome dos produtores (seção 6.1) — e (b) uma taxa percentual fixa dos mantenedores do protocolo. Só o saldo restante é distribuído às wallets. Os percentuais são parâmetros do contrato, públicos e auditáveis on-chain.
 - **Frequência de pagamento: mensal, em lote.** As assinaturas do período se acumulam no pool e a distribuição roda uma vez por mês, batendo o total arrecadado contra o registro de contribuições. Isso evita disparar uma transação a cada consulta paga de uma instituição — reduz custo de rede e dá previsibilidade de renda ao produtor.
 
 ## Por que essa arquitetura resolve a tensão original
