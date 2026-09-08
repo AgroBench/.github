@@ -1,16 +1,5 @@
 # AgroBench — benchmarking regional com dados anonimizados e recompensa em blockchain
 
-## Como rodar este MVP
-
-```bash
-npm install
-npm run dev
-```
-
-Abra http://localhost:5173. Use a barra **Demonstração** no topo para percorrer as personas (Início → Produtor ciclo 1 → Produtor 3 ciclos → Instituição).
-
----
-
 ## O problema
 
 Produtores rurais tomam decisões de compra (adubo, defensivos, insumos) sem nenhuma referência de mercado confiável. Não existe um "quanto o vizinho está pagando" acessível — cada produtor negocia isolado, sem saber se está pagando um preço justo pela sua região.
