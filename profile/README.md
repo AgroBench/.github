@@ -7,8 +7,8 @@ Não é monorepo: a submissão é a org [AgroBench](https://github.com/AgroBench
 | Pasta local | Repo | URL | Papel |
 |---|---|---|---|
 | `backend/` | backend | https://github.com/AgroBench/backend | API Go + adapter Solana |
-| `frontend/` | AgroBenchFront | https://github.com/AgroBench/AgroBenchFront | App Vue (produtor/instituição) |
-| `landing-page/` | agrobenchlanding | https://github.com/AgroBench/agrobenchlanding | Landing |
+| `frontend/` | AgroBenchFront | https://github.com/AgroBench/frontend | App Vue (produtor/instituição) |
+| `landing-page/` | agrobenchlanding | https://github.com/AgroBench/landing-page | Landing |
 | `pitch-deck/` | pitch-deck | https://github.com/AgroBench/pitch-deck | Deck 10 slides |
 | `programs/` | programs | https://github.com/AgroBench/programs | Programa Anchor (escrow stake + pool + split) |
 
