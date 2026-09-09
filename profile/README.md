@@ -4,6 +4,15 @@
 
 Não é monorepo: a submissão é a org [AgroBench](https://github.com/AgroBench). Cada pasta local com `.git` é um repo separado.
 
+```bash
+mkdir agrobench && cd agrobench
+git clone https://github.com/AgroBench/backend.git
+git clone https://github.com/AgroBench/frontend.git
+git clone https://github.com/AgroBench/landing-page.git
+git clone https://github.com/AgroBench/pitch-deck.git
+git clone https://github.com/AgroBench/programs.git
+```
+
 | Pasta local | Repo | URL | Papel |
 |---|---|---|---|
 | `backend/` | backend | https://github.com/AgroBench/backend | API Go + adapter Solana |
@@ -14,7 +23,7 @@ Não é monorepo: a submissão é a org [AgroBench](https://github.com/AgroBench
 
 - Program id (Devnet, **deployado e inicializado**): [`EytN8UaXrfTQc6Pq4AdQbQyJwUX37ddXsV7URayBBLrN`](https://explorer.solana.com/address/EytN8UaXrfTQc6Pq4AdQbQyJwUX37ddXsV7URayBBLrN?cluster=devnet)
 - Mint USDC Devnet (Circle): `4zMMC9srt5Ri5X14GAgXhaHii3GnPAEERYPJgZJDncDU`
-- Ordem de leitura: [programs](https://github.com/AgroBench/programs) (`lib.rs`) → [backend](https://github.com/AgroBench/backend) (`chain.go`) → [AgroBenchFront](https://github.com/AgroBench/AgroBenchFront) (`stake.js`) → [explorer](https://explorer.solana.com/address/EytN8UaXrfTQc6Pq4AdQbQyJwUX37ddXsV7URayBBLrN?cluster=devnet)
+- Ordem de leitura: [programs](https://github.com/AgroBench/programs) (`lib.rs`) → [backend](https://github.com/AgroBench/backend) (`chain.go`) → [frontend](https://github.com/AgroBench/frontend) (`stake.js`) → [explorer](https://explorer.solana.com/address/EytN8UaXrfTQc6Pq4AdQbQyJwUX37ddXsV7URayBBLrN?cluster=devnet)
 - Guia Devnet: [AgroBench/programs](https://github.com/AgroBench/programs) (`DEPLOY-STATUS.md`, `PASSO-A-PASSO-DEVNET.md`).
 
 ## O problema
