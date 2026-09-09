@@ -12,10 +12,10 @@ Não é monorepo: a submissão é a org [AgroBench](https://github.com/AgroBench
 | `pitch-deck/` | pitch-deck | https://github.com/AgroBench/pitch-deck | Deck 10 slides |
 | `programs/` | programs | https://github.com/AgroBench/programs | Programa Anchor (escrow stake + pool + split) |
 
-- Program id (Devnet): `EytN8UaXrfTQc6Pq4AdQbQyJwUX37ddXsV7URayBBLrN` — **ainda não deployado** (conta vazia na Devnet; há build local).
+- Program id (Devnet, **deployado e inicializado**): [`EytN8UaXrfTQc6Pq4AdQbQyJwUX37ddXsV7URayBBLrN`](https://explorer.solana.com/address/EytN8UaXrfTQc6Pq4AdQbQyJwUX37ddXsV7URayBBLrN?cluster=devnet)
 - Mint USDC Devnet (Circle): `4zMMC9srt5Ri5X14GAgXhaHii3GnPAEERYPJgZJDncDU`
-- Ordem de leitura: [programs](https://github.com/AgroBench/programs) (`lib.rs`) → [backend](https://github.com/AgroBench/backend) (`chain.go`) → [AgroBenchFront](https://github.com/AgroBench/AgroBenchFront) (`stake.js`) → explorer só depois do deploy.
-- Guia Devnet do programa: [AgroBench/programs](https://github.com/AgroBench/programs) (README e `PASSO-A-PASSO-DEVNET.md`).
+- Ordem de leitura: [programs](https://github.com/AgroBench/programs) (`lib.rs`) → [backend](https://github.com/AgroBench/backend) (`chain.go`) → [AgroBenchFront](https://github.com/AgroBench/AgroBenchFront) (`stake.js`) → [explorer](https://explorer.solana.com/address/EytN8UaXrfTQc6Pq4AdQbQyJwUX37ddXsV7URayBBLrN?cluster=devnet)
+- Guia Devnet: [AgroBench/programs](https://github.com/AgroBench/programs) (`DEPLOY-STATUS.md`, `PASSO-A-PASSO-DEVNET.md`).
 
 ## O problema
 
