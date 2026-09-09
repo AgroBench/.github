@@ -1,5 +1,22 @@
 # AgroBench — benchmarking regional com dados anonimizados e recompensa em blockchain
 
+## Repositórios
+
+Não é monorepo: a submissão é a org [AgroBench](https://github.com/AgroBench). Cada pasta local com `.git` é um repo separado.
+
+| Pasta local | Repo | URL | Papel |
+|---|---|---|---|
+| `backend/` | backend | https://github.com/AgroBench/backend | API Go + adapter Solana |
+| `frontend/` | AgroBenchFront | https://github.com/AgroBench/AgroBenchFront | App Vue (produtor/instituição) |
+| `landing-page/` | agrobenchlanding | https://github.com/AgroBench/agrobenchlanding | Landing |
+| `pitch-deck/` | pitch-deck | https://github.com/AgroBench/pitch-deck | Deck 10 slides |
+| `programs/` | programs | https://github.com/AgroBench/programs | Programa Anchor (escrow stake + pool + split) |
+
+- Program id (Devnet): `EytN8UaXrfTQc6Pq4AdQbQyJwUX37ddXsV7URayBBLrN` — **ainda não deployado** (conta vazia na Devnet; há build local).
+- Mint USDC Devnet (Circle): `4zMMC9srt5Ri5X14GAgXhaHii3GnPAEERYPJgZJDncDU`
+- Ordem de leitura: [programs](https://github.com/AgroBench/programs) (`lib.rs`) → [backend](https://github.com/AgroBench/backend) (`chain.go`) → [AgroBenchFront](https://github.com/AgroBench/AgroBenchFront) (`stake.js`) → explorer só depois do deploy.
+- Guia Devnet do programa: [AgroBench/programs](https://github.com/AgroBench/programs) (README e `PASSO-A-PASSO-DEVNET.md`).
+
 ## O problema
 
 Produtores rurais tomam decisões de compra (adubo, defensivos, insumos) sem nenhuma referência de mercado confiável. Não existe um "quanto o vizinho está pagando" acessível — cada produtor negocia isolado, sem saber se está pagando um preço justo pela sua região.
@@ -110,6 +127,14 @@ O acesso gratuito ao painel existe para recompensar quem contribui dado real —
 ## Por que essa arquitetura resolve a tensão original
 
 Produtores não querem expor produtividade e custo individual — é informação competitiva. O setor precisa de dados agregados para funcionar melhor: crédito, seguro, política pública. O AgroBench separa identidade (wallet) de conteúdo (dado agrícola), garante que o dado bruto é visto uma única vez, dentro de um TEE, e nunca fica publicamente vinculado a uma pessoa ou propriedade — e cria um incentivo direto e recorrente (benchmarking gratuito + recompensa em USDC) para o produtor participar.
+
+## Estado da demo (hackathon)
+
+A **chain está ligada na Solana Devnet** (`adapters.chain=solana`): commit, atestação e CAR são Memo; a recompensa base sai em USDC-SPL da treasury para a wallet do produtor. O app gera a keypair no dispositivo (ed25519 + base58); o saldo em `GET /wallet` é o da Devnet.
+
+O que ainda é mock: TEE (enclave no processo da API), SICAR, CONAB, SMS e pagamento (Stripe). Stake on-chain no hackathon é Memo — não há escrow Anchor travando USDC do produtor. O pool mensal é job no backend + transferência da treasury, não um programa próprio.
+
+Treasury da demo: [6q35hKFa6vFEy1Huon58gTUs9nkXrgubn496BkAKNSsU](https://explorer.solana.com/address/6q35hKFa6vFEy1Huon58gTUs9nkXrgubn496BkAKNSsU?cluster=devnet) (`?cluster=devnet`). Guia: `SOLANA-DEVNET.md`.
 
 ## Limitações assumidas
 
